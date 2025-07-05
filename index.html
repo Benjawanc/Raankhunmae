@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ร้านอาหารขนาดเล็ก - สั่งอาหารออนไลน์</title>
+    <title>ร้านอาหารตามสั่งคุณแม่และทงคัตสึ - สั่งอาหารออนไลน์</title>
     <link href="https://fonts.googleapis.com/css2?family=Sarabun:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <style>
@@ -65,12 +65,13 @@
         }
 
         .nav-brand {
-            font-size: 1.8rem;
+            font-size: 1.4rem;
             font-weight: 700;
             background: linear-gradient(45deg, var(--pastel-pink), var(--light-blue));
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
+            line-height: 1.2;
         }
 
         .nav-menu {
@@ -128,17 +129,18 @@
         }
 
         .welcome-title {
-            font-size: 2.5rem;
+            font-size: 2.2rem;
             font-weight: 700;
             margin-bottom: var(--spacing-sm);
             background: linear-gradient(45deg, var(--text-dark), var(--light-blue));
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
+            line-height: 1.3;
         }
 
         .welcome-subtitle {
-            font-size: 1.2rem;
+            font-size: 1.1rem;
             color: var(--text-light);
             margin-bottom: var(--spacing-md);
         }
@@ -185,7 +187,7 @@
         /* Menu Grid */
         .menu-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
             gap: var(--spacing-md);
             margin-bottom: var(--spacing-xl);
         }
@@ -206,7 +208,7 @@
 
         .menu-item-image {
             width: 100%;
-            height: 200px;
+            height: 180px;
             background: linear-gradient(45deg, var(--light-blue), var(--pale-goldenrod));
             display: flex;
             align-items: center;
@@ -232,7 +234,7 @@
         }
 
         .menu-item-name {
-            font-size: 1.3rem;
+            font-size: 1.2rem;
             font-weight: 600;
             margin-bottom: var(--spacing-xs);
             color: var(--text-dark);
@@ -242,10 +244,11 @@
             color: var(--text-light);
             margin-bottom: var(--spacing-sm);
             line-height: 1.5;
+            font-size: 0.9rem;
         }
 
         .menu-item-price {
-            font-size: 1.4rem;
+            font-size: 1.3rem;
             font-weight: 700;
             color: var(--light-blue);
             margin-bottom: var(--spacing-md);
@@ -300,6 +303,7 @@
             transition: all 0.3s ease;
             font-weight: 600;
             flex: 1;
+            font-size: 0.9rem;
         }
 
         .add-to-cart-btn:hover {
@@ -567,12 +571,16 @@
 
         /* Responsive Design */
         @media (max-width: 768px) {
+            .nav-brand {
+                font-size: 1.1rem;
+            }
+
             .nav-menu {
                 display: none;
             }
 
             .welcome-title {
-                font-size: 2rem;
+                font-size: 1.8rem;
             }
 
             .menu-grid {
@@ -632,13 +640,22 @@
             border-color: var(--light-blue);
             box-shadow: 0 0 0 3px rgba(173, 216, 230, 0.2);
         }
+
+        /* Special styles for drinks menu */
+        .menu-item.drink .menu-item-image {
+            background: linear-gradient(45deg, #87CEEB, #DDA0DD);
+        }
+
+        .menu-item.signature .menu-item-image {
+            background: linear-gradient(45deg, #FFB6C1, #98FB98);
+        }
     </style>
 </head>
 <body>
     <header class="header">
         <div class="container">
             <nav class="nav">
-                <div class="nav-brand">🍜 ร้านอาหารคุณแม่</div>
+                <div class="nav-brand">🍜 ร้านอาหารตามสั่งคุณแม่และทงคัตสึ</div>
                 <ul class="nav-menu">
                     <li><a href="#menu" class="nav-link active">เมนูอาหาร</a></li>
                     <li>
@@ -657,8 +674,8 @@
         <div class="container">
             <!-- Welcome Section -->
             <section class="welcome-section">
-                <h1 class="welcome-title">ยินดีต้อนรับสู่ร้านอาหารน้องนุ่น</h1>
-                <p class="welcome-subtitle">อาหารไทยแท้รสชาติดั้งเดิม ปรุงด้วยใจ เสิร์ฟด้วยรัก</p>
+                <h1 class="welcome-title">ยินดีต้อนรับสู่ร้านอาหารตามสั่งคุณแม่และทงคัตสึ</h1>
+                <p class="welcome-subtitle">อาหารไทยแท้รสชาติดั้งเดิม อาหารญี่ปุ่น และเครื่องดื่มสดใหม่</p>
                 <div class="table-info">
                     <i class="fas fa-chair"></i> โต๊ะที่ <span id="table-number">1</span>
                 </div>
@@ -672,10 +689,14 @@
                 
                 <div class="menu-categories">
                     <button class="category-btn active" data-category="all">ทั้งหมด</button>
-                    <button class="category-btn" data-category="appetizers">อาหารเรียกน้ำย่อย</button>
-                    <button class="category-btn" data-category="mains">อาหารจานหลัก</button>
-                    <button class="category-btn" data-category="desserts">ขนมหวาน</button>
-                    <button class="category-btn" data-category="beverages">เครื่องดื่ม</button>
+                    <button class="category-btn" data-category="appetizers">เพิ่มเติม</button>
+                    <button class="category-btn" data-category="rice">ข้าวผัด/ข้าวผัดมี้ย่า</button>
+                    <button class="category-btn" data-category="stir-fry">เมนูผัด-ต้มย่า</button>
+                    <button class="category-btn" data-category="curry">เมนูแกงกะหรี่</button>
+                    <button class="category-btn" data-category="specialty">เมนูพิเศษ</button>
+                    <button class="category-btn" data-category="noodles">เมนูลูก-เมนูต้ม</button>
+                    <button class="category-btn" data-category="signature-drinks">เครื่องดื่มซิกเนเจอร์</button>
+                    <button class="category-btn" data-category="drinks">เครื่องดื่ม</button>
                 </div>
 
                 <div class="menu-grid" id="menu-grid">
@@ -714,7 +735,8 @@
                         <i class="fas fa-qrcode"></i>
                     </div>
                     <p><strong>สแกน QR Code เพื่อชำระเงิน</strong></p>
-                    <p>PromptPay: 088-888-8888</p>
+                    <p>PromptPay: KPS004KB00001956494</p>
+                    <p>ชื่อบัญชี: น.ส. เปรมชนิน โชคคำจุน</p>
                 </div>
                 
                 <div class="payment-instructions">
@@ -793,91 +815,519 @@
     </main>
 
     <script>
-        // Sample menu data
+        // Complete menu data based on restaurant images
         const menuData = {
             appetizers: [
                 {
                     id: 'app001',
-                    name: 'ปอเปี๊ยะทอด',
-                    description: 'ปอเปี๊ยะทอดกรอบ เสิร์ฟพร้อมน้ำจิ้มแจ่วหวาน',
-                    price: 45,
-                    icon: '🥟'
+                    name: 'ไข่ม้วน',
+                    description: 'ไข่ม้วนนุ่มฟู หวานมัน',
+                    price: 10,
+                    icon: '🥚'
                 },
                 {
                     id: 'app002',
-                    name: 'เต้าหู้ทอด',
-                    description: 'เต้าหู้ทอดกรอบนอกนุ่มใน เสิร์ฟพร้อมน้ำจิ้มแจ่ว',
-                    price: 35,
-                    icon: '🧈'
+                    name: 'ไข่ดาว',
+                    description: 'ไข่ดาวกรอบนอกนุ่มใน',
+                    price: 10,
+                    icon: '🍳'
+                },
+                {
+                    id: 'app003',
+                    name: 'ไข่เจียว',
+                    description: 'ไข่เจียวฟูนุ่ม',
+                    price: 10,
+                    icon: '🥘'
+                },
+                {
+                    id: 'app004',
+                    name: 'พิเศษ เพิ่มข้าว',
+                    description: 'ข้าวสวยหอมนุ่ม',
+                    price: 10,
+                    icon: '🍚'
+                },
+                {
+                    id: 'app005',
+                    name: 'ยอดอดแม่ม่วน',
+                    description: 'ยอดมะม่วงผัดหอมกรุ่น',
+                    price: 15,
+                    icon: '🥬'
                 }
             ],
-            mains: [
+            rice: [
                 {
-                    id: 'main001',
-                    name: 'ผัดไทยกุ้ง',
-                    description: 'ผัดไทยแท้รสชาติดั้งเดิม เส้นเหนียวนุ่ม กุ้งสด',
+                    id: 'rice001',
+                    name: 'ข้าวผัดโฮ่วจิ๊บ เต้าซี่/ไข่ม้า',
+                    description: 'ข้าวผัดโฮ่วจิ๊บรสเข้มข้น',
+                    price: 70,
+                    icon: '🍚'
+                },
+                {
+                    id: 'rice002',
+                    name: 'ต้มย่าไก่',
+                    description: 'ต้มย่าไก่รสจัดจ้าน',
                     price: 80,
+                    icon: '🍲'
+                },
+                {
+                    id: 'rice003',
+                    name: 'ต้มย่าหมู',
+                    description: 'ต้มย่าหมูเนื้อนุ่ม',
+                    price: 90,
+                    icon: '🍲'
+                },
+                {
+                    id: 'rice004',
+                    name: 'ต้มย่าน้ำข้น/น้ำใส หมู-ไก่',
+                    description: 'ต้มย่าแบบไทยแท้',
+                    price: 100,
                     icon: '🍜'
                 },
                 {
-                    id: 'main002',
-                    name: 'ต้มยำกุ้ง',
-                    description: 'ต้มยำกุ้งใสรสเผ็ดร้อน หอมสมุนไพรไทย',
+                    id: 'rice005',
+                    name: 'ต้มย่าน้ำข้น/น้ำใส กุ้ง-ทะเล',
+                    description: 'ต้มย่าทะเลสดใหม่',
+                    price: 100,
+                    icon: '🦐'
+                },
+                {
+                    id: 'rice006',
+                    name: 'ต้มย่าน้ำข้น/น้ำใส รวมมิตร',
+                    description: 'ต้มย่ารวมมิตรครบรส',
                     price: 120,
                     icon: '🍲'
                 },
                 {
-                    id: 'main003',
-                    name: 'ข้าวผัดปู',
-                    description: 'ข้าวผัดปูอร่อยกลมกล่อม เนื้อปูแน่น',
-                    price: 150,
+                    id: 'rice007',
+                    name: 'ต้มแซ่บ หมู-ไก่-หมึก-กุ้ง',
+                    description: 'ต้มแซ่บรสจัดจ้าน',
+                    price: 100,
+                    icon: '🌶️'
+                },
+                {
+                    id: 'rice008',
+                    name: 'ต้มแซ่บ ทะเล(หมึกกุ้ง)',
+                    description: 'ต้มแซ่บทะเลสด',
+                    price: 100,
+                    icon: '🦑'
+                },
+                {
+                    id: 'rice009',
+                    name: 'ต้มย่าปลาป่อง',
+                    description: 'ต้มย่าปลาป่องหอมหวาน',
+                    price: 60,
+                    icon: '🐟'
+                }
+            ],
+            'stir-fry': [
+                {
+                    id: 'stir001',
+                    name: 'ข้าวผัด',
+                    description: 'ข้าวผัดธรรมดาหอมหวาน',
+                    price: 50,
                     icon: '🍚'
                 },
                 {
-                    id: 'main004',
-                    name: 'แกงเขียวหวานไก่',
-                    description: 'แกงเขียวหวานไก่เข้มข้น หอมใบโหระพา',
-                    price: 90,
-                    icon: '🍛'
-                }
-            ],
-            desserts: [
-                {
-                    id: 'des001',
-                    name: 'มะม่วงข้าวเหนียว',
-                    description: 'มะม่วงสุกหวาน เสิร์ฟพร้อมข้าวเหนียวหอม',
-                    price: 65,
-                    icon: '🥭'
+                    id: 'stir002',
+                    name: 'ข้าวผัดหมูสับ',
+                    description: 'ข้าวผัดหมูสับหอมหวาน',
+                    price: 50,
+                    icon: '🐷'
                 },
                 {
-                    id: 'des002',
-                    name: 'ทับทิมกรอบ',
-                    description: 'ทับทิมกรอบเสิร์ฟเย็น หวานเซาะใส',
-                    price: 45,
-                    icon: '🍧'
+                    id: 'stir003',
+                    name: 'ข้าวผัดหมูสามชั้น อกไก่',
+                    description: 'ข้าวผัดเนื้อหมูนุ่ม',
+                    price: 50,
+                    icon: '🥓'
+                },
+                {
+                    id: 'stir004',
+                    name: 'ข้าวผัดเสี่ยงรอก บอ',
+                    description: 'ข้าวผัดเสี่ยงรอกรสเข้มข้น',
+                    price: 50,
+                    icon: '🍚'
+                },
+                {
+                    id: 'stir005',
+                    name: 'ข้าวผัดปลาหมึก กุ้ง',
+                    description: 'ข้าวผัดทะเลสด',
+                    price: 60,
+                    icon: '🦑'
+                },
+                {
+                    id: 'stir006',
+                    name: 'ข้าวผัดทะเล',
+                    description: 'ข้าวผัดทะเลรวมมิตร',
+                    price: 70,
+                    icon: '🌊'
+                },
+                {
+                    id: 'stir007',
+                    name: 'ข้าวผัดปลาป่อง เนื้อเปี่ยว',
+                    description: 'ข้าวผัดปลาป่องหอมหวาน',
+                    price: 60,
+                    icon: '🐟'
+                },
+                {
+                    id: 'stir008',
+                    name: 'ข้าวผัดรวมมิตร',
+                    description: 'ข้าวผัดรวมทุกอย่าง',
+                    price: 80,
+                    icon: '🍽️'
+                },
+                {
+                    id: 'stir009',
+                    name: 'ข้าวผัดกะปิปลากู',
+                    description: 'ข้าวผัดกะปิรสจัดจ้าน',
+                    price: 60,
+                    icon: '🦐'
                 }
             ],
-            beverages: [
+            curry: [
                 {
-                    id: 'bev001',
-                    name: 'น้ำมะพร้าว',
-                    description: 'น้ำมะพร้าวสด หวานธรรมชาติ',
+                    id: 'curry001',
+                    name: 'แกงกะหรี่ฟักทอง หมู-ไก่',
+                    description: 'แกงกะหรี่ฟักทองหวานมัน',
+                    price: 100,
+                    icon: '🎃'
+                },
+                {
+                    id: 'curry002',
+                    name: 'แกงกะหรี่ฟักทอง สามชั้น',
+                    description: 'แกงกะหรี่หมูสามชั้น',
+                    price: 100,
+                    icon: '🥩'
+                },
+                {
+                    id: 'curry003',
+                    name: 'แกงกะหรี่มะเขือ หมู-ไก่',
+                    description: 'แกงกะหรี่มะเขือม่วง',
+                    price: 100,
+                    icon: '🍆'
+                },
+                {
+                    id: 'curry004',
+                    name: 'แกงกะหรี่มะเขือ สามชั้น',
+                    description: 'แกงกะหรี่มะเขือสามชั้น',
+                    price: 100,
+                    icon: '🍆'
+                },
+                {
+                    id: 'curry005',
+                    name: 'แกงกะหรี่หนอไม้ หมู-ไก่',
+                    description: 'แกงกะหรี่หนอไม้กรุบ',
+                    price: 100,
+                    icon: '🎋'
+                },
+                {
+                    id: 'curry006',
+                    name: 'แกงกะหรี่หนอไม้ สามชั้น',
+                    description: 'แกงกะหรี่หนอไม้สามชั้น',
+                    price: 100,
+                    icon: '🎋'
+                },
+                {
+                    id: 'curry007',
+                    name: 'แกงพะแนง หมู-ไก่-สามชั้น',
+                    description: 'แกงพะแนงเข้มข้น',
+                    price: 100,
+                    icon: '🌶️'
+                },
+                {
+                    id: 'curry008',
+                    name: 'แกงเขียวหวาน หมู-ไก่',
+                    description: 'แกงเขียวหวานหอมใบโหระพา',
+                    price: 100,
+                    icon: '🌿'
+                }
+            ],
+            specialty: [
+                {
+                    id: 'spec001',
+                    name: 'โรโงต้มน้ำปลา ⭐⭐',
+                    description: 'โรโงต้มน้ำปลาเข้มข้น',
+                    price: 79,
+                    icon: '🍲'
+                },
+                {
+                    id: 'spec002',
+                    name: 'ผัดไทยหมู-ไก่',
+                    description: 'ผัดไทยรสชาติดั้งเดิม',
+                    price: 60,
+                    icon: '🍜'
+                },
+                {
+                    id: 'spec003',
+                    name: 'ผัดไทยกุ้ง/ทะเล',
+                    description: 'ผัดไทยกุ้งสดใหม่',
+                    price: 70,
+                    icon: '🦐'
+                },
+                {
+                    id: 'spec004',
+                    name: 'ปลาป่องผัดใชรึดข้าว',
+                    description: 'ปลาป่องผัดรสเผ็ด',
+                    price: 70,
+                    icon: '🐟'
+                },
+                {
+                    id: 'spec005',
+                    name: 'ข้าวรากย่าปลาป่อง',
+                    description: 'ข้าวราดแกงย่าปลาป่อง',
+                    price: 60,
+                    icon: '🍚'
+                },
+                {
+                    id: 'spec006',
+                    name: 'หมูจีบแกงเขียวหวาน ⭐⭐',
+                    description: 'หมูจีบแกงเขียวหวานหอมหวาน',
+                    price: 60,
+                    icon: '🥟'
+                },
+                {
+                    id: 'spec007',
+                    name: 'ห่อหมกใชข้นหมู-ไก่',
+                    description: 'ห่อหมกใส่เข้มข้น',
+                    price: 69,
+                    icon: '🌯'
+                },
+                {
+                    id: 'spec008',
+                    name: 'ห่อหมกใชข้นทะเล',
+                    description: 'ห่อหมกทะเลรวมมิตร',
+                    price: 99,
+                    icon: '🌯'
+                }
+            ],
+            noodles: [
+                {
+                    id: 'noodle001',
+                    name: 'ผัดมามา่เดี่ยวย่าหมู',
+                    description: 'ผัดมีดีย่าหมูเข้มข้น',
+                    price: 50,
+                    icon: '🍜'
+                },
+                {
+                    id: 'noodle002',
+                    name: 'ผัดมามา่เดี่ยวย่างหมึก กุ้ง',
+                    description: 'ผัดมีดีย่าทะเลสด',
+                    price: 60,
+                    icon: '🦑'
+                },
+                {
+                    id: 'noodle003',
+                    name: 'ผัดมามา่เดี่ยวย่าทะเล',
+                    description: 'ผัดมีดีย่าทะเลรวม',
+                    price: 70,
+                    icon: '🌊'
+                },
+                {
+                    id: 'noodle004',
+                    name: 'ผัดเซี่ยนแก้ว หมู ไก่',
+                    description: 'ผัดเซี่ยนแก้วใส',
+                    price: 60,
+                    icon: '🍝'
+                },
+                {
+                    id: 'noodle005',
+                    name: 'ผัดเซี่ยนแก้ว กุ้ง หมึก',
+                    description: 'ผัดเซี่ยนแก้วทะเล',
+                    price: 70,
+                    icon: '🦐'
+                },
+                {
+                    id: 'noodle006',
+                    name: 'ผัดเซี่ยนแก้ว ทะเล',
+                    description: 'ผัดเซี่ยนแก้วทะเลรวม',
+                    price: 80,
+                    icon: '🌊'
+                },
+                {
+                    id: 'noodle007',
+                    name: 'ต้มมามา่เดี่ยวย่า(ไข่รวมใข)',
+                    description: 'ต้มมามีย่าใส่ไข่',
+                    price: 50,
+                    icon: '🍜'
+                },
+                {
+                    id: 'noodle008',
+                    name: 'ก๋วยจั๊บต้มย่าหมู',
+                    description: 'ก๋วยจั๊บต้มย่าเข้มข้น',
+                    price: 60,
+                    icon: '🍲'
+                },
+                {
+                    id: 'noodle009',
+                    name: 'ก๋วยจั๊บต้มย่าทะเล',
+                    description: 'ก๋วยจั๊บต้มย่าทะเลสด',
+                    price: 80,
+                    icon: '🦐'
+                }
+            ],
+            'signature-drinks': [
+                {
+                    id: 'sig001',
+                    name: 'โกโก้ ลาเต้',
+                    description: 'เครื่องดื่มโกโก้หอมมัน',
                     price: 35,
-                    icon: '🥥'
+                    icon: '☕'
                 },
                 {
-                    id: 'bev002',
+                    id: 'sig002',
+                    name: 'สตรอว์เบอร์รี่ โซดา',
+                    description: 'สตรอว์เบอร์รี่ โซดา + ป๊อบ',
+                    price: 40,
+                    icon: '🍓'
+                },
+                {
+                    id: 'sig003',
+                    name: 'สตรอว์เบอร์รี่ มิลค์',
+                    description: 'สตรอว์เบอร์รี่ นมสด',
+                    price: 40,
+                    icon: '🍓'
+                },
+                {
+                    id: 'sig004',
+                    name: 'มัทฉะ ลาเต้',
+                    description: 'มัทฉะ ลาเต้',
+                    price: 45,
+                    icon: '🍵'
+                }
+            ],
+            drinks: [
+                {
+                    id: 'drink001',
+                    name: 'ชาเขียวนม',
+                    description: 'ชาเขียวนมหอมหวาน',
+                    price: 35,
+                    icon: '🍵'
+                },
+                {
+                    id: 'drink002',
                     name: 'ชาไทย',
-                    description: 'ชาไทยเข้มข้น หวานหอม เสิร์ฟเย็น',
-                    price: 25,
+                    description: 'ชาไทยเข้มข้น',
+                    price: 35,
                     icon: '🧋'
                 },
                 {
-                    id: 'bev003',
-                    name: 'น้ำมะนาวโซดา',
-                    description: 'น้ำมะนาวโซดาสดชื่น เปรีย้วหวาน',
+                    id: 'drink003',
+                    name: 'ชาชมพู',
+                    description: 'ชาชมพูหวานหอม',
+                    price: 35,
+                    icon: '🌸'
+                },
+                {
+                    id: 'drink004',
+                    name: 'ชามะนาว',
+                    description: 'ชามะนาวสดชื่น',
                     price: 30,
                     icon: '🍋'
+                },
+                {
+                    id: 'drink005',
+                    name: 'นมสด',
+                    description: 'นมสดเข้มข้น',
+                    price: 35,
+                    icon: '🥛'
+                },
+                {
+                    id: 'drink006',
+                    name: 'มัทฉะ ลาเต้',
+                    description: 'มัทฉะเขียวนิยม',
+                    price: 45,
+                    icon: '🍵'
+                },
+                {
+                    id: 'drink007',
+                    name: 'โกโก้ ลาเต้',
+                    description: 'โกโก้เข้มข้น',
+                    price: 35,
+                    icon: '☕'
+                },
+                {
+                    id: 'drink008',
+                    name: 'นมสดผึ้งค',
+                    description: 'นมสดตารอมิลค์',
+                    price: 35,
+                    icon: '🥛'
+                },
+                {
+                    id: 'drink009',
+                    name: 'อเมริกาโน',
+                    description: 'กาแฟอเมริกาโนเข้มข้น',
+                    price: 50,
+                    icon: '☕'
+                },
+                {
+                    id: 'drink010',
+                    name: 'คาปูชิโน',
+                    description: 'คาปูชิโนโฟมนุ่ม',
+                    price: 50,
+                    icon: '☕'
+                },
+                {
+                    id: 'drink011',
+                    name: 'ลาเต้',
+                    description: 'ลาเต้หอมหวาน',
+                    price: 50,
+                    icon: '☕'
+                },
+                {
+                    id: 'drink012',
+                    name: 'มอคค่า',
+                    description: 'มอคค่าช็อกโกแลต',
+                    price: 50,
+                    icon: '☕'
+                },
+                {
+                    id: 'drink013',
+                    name: 'บลูเลมอน โซดา',
+                    description: 'บลูพารายใสย์+มะนาว โซดา',
+                    price: 30,
+                    icon: '🔵'
+                },
+                {
+                    id: 'drink014',
+                    name: 'เรดเลมอน โซดา',
+                    description: 'แดง+มะนาว โซดา',
+                    price: 30,
+                    icon: '🔴'
+                },
+                {
+                    id: 'drink015',
+                    name: 'สตรอว์เบอร์รี่ โซดา',
+                    description: 'สตรอว์เบอร์รี่ โซดา',
+                    price: 30,
+                    icon: '🍓'
+                },
+                {
+                    id: 'drink016',
+                    name: 'เรด โซดา',
+                    description: 'แดง โซดา',
+                    price: 30,
+                    icon: '🔴'
+                },
+                {
+                    id: 'drink017',
+                    name: 'บลูฮาวาย โซดา',
+                    description: 'บลูฮาวาย โซดา',
+                    price: 30,
+                    icon: '🏝️'
+                },
+                {
+                    id: 'drink018',
+                    name: 'บลูเบอร์รี่ โซดา',
+                    description: 'บลูเบอร์รี่ โซดา',
+                    price: 30,
+                    icon: '🫐'
+                },
+                {
+                    id: 'drink019',
+                    name: 'ฮันนี่เลมอน โซดา',
+                    description: 'เลมอนน้ำผึ้ง โซดา',
+                    price: 30,
+                    icon: '🍯'
                 }
             ]
         };
@@ -940,9 +1390,17 @@
             div.className = 'menu-item';
             div.setAttribute('data-category', category);
             
+            // Add special class for drinks
+            if (category.includes('drink')) {
+                div.classList.add('drink');
+            }
+            if (category === 'signature-drinks') {
+                div.classList.add('signature');
+            }
+            
             div.innerHTML = `
                 <div class="menu-item-image">
-                    <span style="font-size: 4rem;">${item.icon}</span>
+                    <span style="font-size: 3.5rem;">${item.icon}</span>
                 </div>
                 <div class="menu-item-content">
                     <h3 class="menu-item-name">${item.name}</h3>
@@ -1040,218 +1498,4 @@
             
             if (cart.length === 0) {
                 cartItems.innerHTML = `
-                    <p style="text-align: center; color: var(--text-light); padding: var(--spacing-xl);">
-                        ตะกร้าสินค้าว่างเปล่า กรุณาเลือกอาหารจากเมนู
-                    </p>
-                `;
-                cartTotal.style.display = 'none';
-                cartCount.textContent = '0';
-                return;
-            }
-
-            cartItems.innerHTML = '';
-            let totalAmount = 0;
-            let totalItems = 0;
-
-            cart.forEach((item, index) => {
-                totalAmount += item.total;
-                totalItems += item.quantity;
-                
-                const cartItem = document.createElement('div');
-                cartItem.className = 'cart-item';
-                cartItem.innerHTML = `
-                    <div class="cart-item-info">
-                        <h4>${item.name}</h4>
-                        <div class="cart-item-details">
-                            จำนวน: ${item.quantity} × ${item.price} บาท
-                            ${item.notes ? `<br>หมายเหตุ: ${item.notes}` : ''}
-                        </div>
-                    </div>
-                    <div>
-                        <div class="cart-item-price">${item.total} บาท</div>
-                        <button onclick="removeFromCart(${index})" 
-                                style="background: var(--pastel-pink); color: white; border: none; padding: 4px 8px; border-radius: 4px; cursor: pointer; margin-top: 4px;">
-                            <i class="fas fa-trash"></i>
-                        </button>
-                    </div>
-                `;
-                cartItems.appendChild(cartItem);
-            });
-
-            document.getElementById('total-amount').textContent = totalAmount;
-            cartTotal.style.display = 'block';
-            cartCount.textContent = totalItems;
-        }
-
-        // Remove item from cart
-        function removeFromCart(index) {
-            cart.splice(index, 1);
-            updateCartDisplay();
-            showNotification('ลบรายการออกจากตะกร้าแล้ว');
-        }
-
-        // Clear cart
-        function clearCart() {
-            cart = [];
-            updateCartDisplay();
-            showNotification('ล้างตะกร้าเรียบร้อยแล้ว');
-        }
-
-        // Proceed to payment
-        function proceedToPayment() {
-            if (cart.length === 0) {
-                showNotification('กรุณาเลือกอาหารก่อนชำระเงิน', 'error');
-                return;
-            }
-            
-            const totalAmount = cart.reduce((sum, item) => sum + item.total, 0);
-            document.getElementById('payment-amount').textContent = totalAmount;
-            
-            showSection('payment');
-            startPaymentTimer();
-        }
-
-        // Start payment timer
-        function startPaymentTimer() {
-            let timeLeft = 600; // 10 minutes
-            const countdownElement = document.getElementById('countdown');
-            
-            orderTimer = setInterval(() => {
-                const minutes = Math.floor(timeLeft / 60);
-                const seconds = timeLeft % 60;
-                
-                countdownElement.textContent = 
-                    `${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
-                
-                if (timeLeft <= 0) {
-                    clearInterval(orderTimer);
-                    showNotification('หมดเวลาชำระเงิน กรุณาทำรายการใหม่', 'error');
-                    showSection('cart');
-                }
-                
-                timeLeft--;
-            }, 1000);
-        }
-
-        // Confirm payment
-        function confirmPayment() {
-            clearInterval(orderTimer);
-            
-            // Create order
-            const order = {
-                id: 'ORDER-' + Date.now(),
-                items: [...cart],
-                total: cart.reduce((sum, item) => sum + item.total, 0),
-                timestamp: new Date(),
-                status: 'confirmed',
-                tableNumber: document.getElementById('table-number').textContent
-            };
-            
-            // Clear cart
-            cart = [];
-            updateCartDisplay();
-            
-            // Show order status
-            showSection('status');
-            simulateOrderProgress();
-            
-            showNotification('ชำระเงินสำเร็จ! ออเดอร์ของคุณกำลังเตรียม', 'success');
-        }
-
-        // Simulate order progress
-        function simulateOrderProgress() {
-            const steps = document.querySelectorAll('.status-step');
-            let currentStep = 1;
-            
-            const progressTimer = setInterval(() => {
-                if (currentStep < steps.length) {
-                    steps[currentStep - 1].classList.remove('active');
-                    steps[currentStep - 1].classList.add('completed');
-                    steps[currentStep].classList.add('active');
-                    currentStep++;
-                } else {
-                    clearInterval(progressTimer);
-                    showNotification('อาหารของคุณพร้อมแล้ว! 🎉', 'success');
-                }
-            }, 10000); // 10 seconds per step for demo
-        }
-
-        // Mark order as ready (kitchen function)
-        function markReady(orderId) {
-            showNotification(`ออเดอร์ ${orderId} พร้อมเสิร์ฟแล้ว!`, 'success');
-        }
-
-        // Show section
-        function showSection(sectionName) {
-            // Hide all sections
-            document.querySelectorAll('.menu-section, .cart-section, .payment-section, .order-status-section, .kitchen-section').forEach(section => {
-                section.classList.remove('active');
-                section.style.display = 'none';
-            });
-            
-            // Show target section
-            const targetSection = document.getElementById(sectionName);
-            if (targetSection) {
-                targetSection.style.display = 'block';
-                targetSection.classList.add('active');
-            }
-            
-            currentSection = sectionName;
-        }
-
-        // Update table number from URL
-        function updateTableNumber() {
-            const urlParams = new URLSearchParams(window.location.search);
-            const tableNumber = urlParams.get('table') || '1';
-            document.getElementById('table-number').textContent = tableNumber;
-        }
-
-        // Show notification
-        function showNotification(message, type = 'info') {
-            const notification = document.createElement('div');
-            notification.style.cssText = `
-                position: fixed;
-                top: 100px;
-                right: 20px;
-                background: ${type === 'error' ? 'var(--pastel-pink)' : 
-                           type === 'success' ? 'var(--light-blue)' : 'var(--pale-goldenrod)'};
-                color: white;
-                padding: var(--spacing-sm) var(--spacing-md);
-                border-radius: var(--border-radius);
-                box-shadow: 0 4px 20px var(--shadow-medium);
-                z-index: 2000;
-                animation: slideIn 0.3s ease;
-                max-width: 300px;
-                font-weight: 500;
-            `;
-            
-            notification.textContent = message;
-            document.body.appendChild(notification);
-            
-            setTimeout(() => {
-                notification.style.animation = 'slideOut 0.3s ease';
-                setTimeout(() => {
-                    document.body.removeChild(notification);
-                }, 300);
-            }, 3000);
-        }
-
-        // Add CSS animations
-        const style = document.createElement('style');
-        style.textContent = `
-            @keyframes slideIn {
-                from { transform: translateX(100%); opacity: 0; }
-                to { transform: translateX(0); opacity: 1; }
-            }
-            @keyframes slideOut {
-                from { transform: translateX(0); opacity: 1; }
-                to { transform: translateX(100%); opacity: 0; }
-            }
-        `;
-        document.head.appendChild(style);
-
-        // Initialize menu on page load
-        showSection('menu');
-    </script>
-</body>
-</html>
+                    <p style="text-
